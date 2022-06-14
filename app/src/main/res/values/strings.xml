@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">chatApp</string>
+    <string name="login_username">username</string>
+    <string name="login_password">password</string>
+    <string name="login_server">server</string>
+    <string name="login_LOG_IN">LOG IN</string>
+    <string name="login_new_to_chatapp">New to ChatApp?</string>
+    <string name="login_new_on_chatapp">New On ChatAPP?</string>
+    <string name="register_nickname">nickname</string>
+    <string name="register_now">REGISTER NOW</string>
+    <string name="addchat_add">ADD</string>
+</resources>
