@@ -9,4 +9,7 @@
     <string name="register_nickname">nickname</string>
     <string name="register_now">REGISTER NOW</string>
     <string name="addchat_add">ADD</string>
+    <string name="register">Create New Account</string>
+    <string name="member">Already A Member? Login</string>
+    <string name="welcome">Welcome Back!</string>
 </resources>
