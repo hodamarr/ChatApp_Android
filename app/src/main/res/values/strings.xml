@@ -13,4 +13,5 @@
     <string name="member">Already A Member? Login</string>
     <string name="welcome">Welcome Back!</string>
     <string name="send">SEND</string>
+    <string name="already_have_account">already have account?</string>
 </resources>

@@ -30,7 +30,7 @@
         </LinearLayout>
 
     <EditText
-        android:id="@+id/usernameBoxRegister"
+        android:id="@+id/etRegisterUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -41,7 +41,7 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/nicknameBoxRegister"
+        android:id="@+id/etRegisterNick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -52,7 +52,7 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/passwordBoxRegister"
+        android:id="@+id/etRegisterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/serverBoxRegister"
+        android:id="@+id/etRegisterServer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -72,6 +72,8 @@
         android:minHeight="48dp"
         android:layout_margin="5dp"
         android:importantForAutofill="no" />
+
+
 
     <Button
         android:id="@+id/btnRegsiterNow"
@@ -91,10 +93,10 @@
         android:layout_gravity="center">
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnRegisterLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_new_on_chatapp"
+            android:text="@string/already_have_account"
             />
     </LinearLayout>
 

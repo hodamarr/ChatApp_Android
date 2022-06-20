@@ -27,4 +27,8 @@ public class Contacts {
     public String getServer() {
         return server;
     }
+
+    public String toStr(){
+        return this.id;
+    }
 }

@@ -1,45 +1,48 @@
 package com.example.chatapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import androidx.room.Room;
-
 import android.content.Intent;
+import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import com.example.chatapp.activities.CustomAdapter;
 import com.example.chatapp.R;
 import com.example.chatapp.room.AppDB;
+import com.example.chatapp.room.Contacts;
+import com.example.chatapp.room.ContactsDao;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Chats extends AppCompatActivity {
-    private List<String> mylist = new ArrayList<>();
     private AppDB db;
-    private PostDao postDao;
+    private ContactsDao cdao;
+    private List<Contacts> contacts;
+    private CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         db = Room.databaseBuilder(getApplicationContext(), AppDB.class,"PostsDB").build();
-        postDao = db.postDao();
+        cdao = (ContactsDao) db.ContactsDao();
         setContentView(R.layout.activity_chats);
-
-        /// adapting mylist to listView
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, mylist);
-        ListView lvItems = findViewById(R.id.lvpost);
-        lvItems.setAdapter(adapter);
-
 
         /// Add buttun
         FloatingActionButton btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(v -> {
             Intent i = new Intent(this, AddChat.class);
             startActivity(i);
+            RecyclerView lvpost = findViewById(R.id.lvpost);
+
+            contacts = cdao.index();
+            adapter = new CustomAdapter(this, contacts);
+            lvpost.setAdapter(adapter);
         });
 
 

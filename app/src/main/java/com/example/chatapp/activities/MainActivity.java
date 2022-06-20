@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityMainBinding;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        EditText username = findViewById(R.id.etLoginUsername);
+        EditText password = findViewById(R.id.etLoginPassword);
+        EditText server = findViewById(R.id.etLoginServer);
 
         /// log in button button (On click Logic)
         /// TODO: check if correct -> true: go to chat, false -> show msg on screen

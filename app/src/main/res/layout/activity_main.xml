@@ -32,7 +32,7 @@
 
 
         <EditText
-            android:id="@+id/usernameBox"
+            android:id="@+id/etLoginUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -42,7 +42,7 @@
             android:importantForAutofill="no" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/etLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -52,7 +52,7 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/etLoginServer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
