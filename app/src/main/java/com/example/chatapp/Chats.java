@@ -1,6 +1,7 @@
 package com.example.chatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,11 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Chats extends AppCompatActivity {
-    List<String> mylist = new ArrayList<>();
+    private List<String> mylist = new ArrayList<>();
+    private AppDB db;
+    private PostDao postDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        db = Room.databaseBuilder(getApplicationContext(), AppDB.class,"postsDB").build();
+        postDao = db.postDao();
         setContentView(R.layout.activity_chats);
         mylist.add("ofek");
         mylist.add("hod");
@@ -37,6 +43,8 @@ public class Chats extends AppCompatActivity {
             Intent i = new Intent(this, AddChat.class);
             startActivity(i);
         });
+
+
 
     }
 

@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         /// log in button button (On click Logic)
         /// TODO: check if correct -> true: go to chat, false -> show msg on screen
         Button btnLogin = findViewById(R.id.btnLogin);
-        binding.btnLogin.setOnClickListener(v -> {});
+        binding.btnLogin.setOnClickListener(v -> {
+            Intent i = new Intent(this, Chats.class);
+            startActivity(i);
+        });
 
         /// register button (On click Logic)
         binding.btnRegister.setOnClickListener(v -> {
