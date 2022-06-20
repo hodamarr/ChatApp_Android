@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddChat">
+    tools:context=".activities.AddChat">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -44,7 +44,6 @@
 
         <Button
             android:id="@+id/btnAddChat"
-
             android:layout_width="260dp"
             android:layout_height="70dp"
             android:layout_gravity="center_horizontal"

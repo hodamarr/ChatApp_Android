@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
 
@@ -17,23 +16,17 @@
         tools:layout_editor_absoluteY="1dp"
         android:padding="150px">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="5dp"
             android:orientation="horizontal">
 
-
-            <TextView
+            <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:text="@string/welcome"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                />
+                app:srcCompat="@drawable/ic_loginlogo"/>
 
         </LinearLayout>
 
@@ -46,7 +39,6 @@
             android:hint="@string/login_username"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:layout_margin="5dp"
             android:importantForAutofill="no" />
 
         <EditText
@@ -57,7 +49,6 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:hint="@string/login_password"
-            android:layout_margin="5dp"
             android:autofillHints="" />
 
         <EditText
@@ -68,7 +59,6 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:hint="@string/login_server"
-            android:layout_margin="5dp"
             android:autofillHints="" />
 
         <Button
@@ -76,7 +66,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login_LOG_IN"
-            android:layout_margin="5dp"
             />
 
         <LinearLayout

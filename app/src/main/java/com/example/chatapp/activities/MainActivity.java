@@ -1,12 +1,12 @@
-package com.example.chatapp;
+package com.example.chatapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
+import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityMainBinding;
 
 
@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         /// log in button button (On click Logic)
         /// TODO: check if correct -> true: go to chat, false -> show msg on screen
         Button btnLogin = findViewById(R.id.btnLogin);
-        binding.btnLogin.setOnClickListener(v -> {});
+        binding.btnLogin.setOnClickListener(v -> {
+            Intent i = new Intent(this, Chats.class);
+            startActivity(i);
+        });
 
         /// register button (On click Logic)
         binding.btnRegister.setOnClickListener(v -> {
