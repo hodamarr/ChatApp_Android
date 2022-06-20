@@ -1,4 +1,4 @@
-package com.example.chatapp;
+package com.example.chatapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -6,7 +6,9 @@ import androidx.room.Room;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityAddChatBinding;
+import com.example.chatapp.room.AppDB;
 
 public class AddChat extends AppCompatActivity {
     private ActivityAddChatBinding biding;
@@ -21,10 +23,12 @@ public class AddChat extends AppCompatActivity {
         postDao = db.postDao();
 
         biding.btnAddChat.setOnClickListener(v -> {
-            EditText editText = findViewById(R.id.edAddChatId);
+            EditText addChatId = findViewById(R.id.edAddChatId);
+            EditText addChatname = findViewById(R.id.edAddChatName);
+            EditText addChatServer = findViewById(R.id.edAddChatServer);
             //// work on server here
             /// then add to local db
-            Post post = new Post()
+//            Post post = new Post(0, )
         });
     }
 }

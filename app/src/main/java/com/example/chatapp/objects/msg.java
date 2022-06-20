@@ -1,4 +1,4 @@
-package com.example.chatapp;
+package com.example.chatapp.objects;
 
 public class msg {
     private String who;
