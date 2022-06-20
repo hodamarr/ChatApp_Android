@@ -6,20 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".activities.Register"
     android:orientation="vertical"
+    android:background="@drawable/gradient_background"
     android:padding="150px">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_margin="5dp"
             android:orientation="horizontal">
 
-            <ImageView
+
+            <TextView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                app:srcCompat="@drawable/ic_loginlogo"/>
+                android:text="@string/register"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                />
 
         </LinearLayout>
+
     <EditText
         android:id="@+id/usernameBoxRegister"
         android:layout_width="match_parent"
@@ -28,7 +37,9 @@
         android:hint="@string/login_username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:layout_margin="5dp"
         android:importantForAutofill="no" />
+
     <EditText
         android:id="@+id/nicknameBoxRegister"
         android:layout_width="match_parent"
@@ -37,7 +48,9 @@
         android:hint="@string/register_nickname"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:layout_margin="5dp"
         android:importantForAutofill="no" />
+
     <EditText
         android:id="@+id/passwordBoxRegister"
         android:layout_width="match_parent"
@@ -46,6 +59,7 @@
         android:hint="@string/login_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:layout_margin="5dp"
         android:importantForAutofill="no" />
 
     <EditText
@@ -56,13 +70,33 @@
         android:hint="@string/login_server"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:layout_margin="5dp"
         android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btnRegsiterNow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register_now" />
+        android:layout_margin="5dp"
+        android:text="@string/register_now"
+        />
 
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:padding="150px"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_new_on_chatapp"
+            />
+    </LinearLayout>
 
 </LinearLayout>
+
