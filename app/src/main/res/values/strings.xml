@@ -1,17 +1,18 @@
 <resources>
     <string name="app_name">chatApp</string>
-    <string name="login_username">username</string>
-    <string name="login_password">password</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="pass2">Enter password again</string>
     <string name="login_server">server</string>
-    <string name="login_LOG_IN">LOG IN</string>
+    <string name="login_LOG_IN">Login</string>
     <string name="login_new_to_chatapp">New to ChatApp?</string>
     <string name="login_new_on_chatapp">New On ChatAPP?</string>
-    <string name="register_nickname">nickname</string>
-    <string name="register_now">REGISTER NOW</string>
-    <string name="addchat_add">ADD</string>
+    <string name="register_nickname">Nickname</string>
+    <string name="register_now">Register Now</string>
+    <string name="addchat_add">Add</string>
     <string name="register">Create New Account</string>
     <string name="member">Already A Member? Login</string>
     <string name="welcome">Welcome Back!</string>
     <string name="send">SEND</string>
-    <string name="already_have_account">already have account?</string>
+    <string name="already_have_account">Already have an account?</string>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".activities.MainActivity">
 
     <LinearLayout
@@ -22,11 +23,16 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <TextView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                app:srcCompat="@drawable/ic_loginlogo"/>
+                android:text="@string/welcome"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                />
 
         </LinearLayout>
 
@@ -39,6 +45,7 @@
             android:hint="@string/login_username"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:layout_margin="5dp"
             android:importantForAutofill="no" />
 
         <EditText
@@ -48,23 +55,27 @@
             android:ems="10"
             android:inputType="textPassword"
             android:minHeight="48dp"
+            android:layout_margin="5dp"
             android:hint="@string/login_password"
             android:autofillHints="" />
 
-        <EditText
-            android:id="@+id/etLoginServer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:hint="@string/login_server"
-            android:autofillHints="" />
+<!--        <EditText-->
+<!--            android:id="@+id/etLoginServer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:minHeight="48dp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:hint="@string/login_server"-->
+<!--            android:autofillHints="" />-->
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+
             android:text="@string/login_LOG_IN"
             />
 
