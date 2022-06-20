@@ -12,4 +12,5 @@
     <string name="register">Create New Account</string>
     <string name="member">Already A Member? Login</string>
     <string name="welcome">Welcome Back!</string>
+    <string name="send">SEND</string>
 </resources>
