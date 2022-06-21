@@ -1,45 +1,56 @@
 package com.example.chatapp.webServiceAPI;
 
-import androidx.room.Delete;
-
-
+import com.example.chatapp.objects.AddContactData;
 import com.example.chatapp.objects.Contact;
+import com.example.chatapp.objects.InvitationData;
+import com.example.chatapp.objects.TransferData;
 import com.example.chatapp.objects.User;
+import com.example.chatapp.objects.Msg;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface WebServiceAPI {
-    @GET("uesr")
+    // ---------- Users -----------
+    @GET("users")
     Call<List<User>> getUsers();
 
-    @GET("uesr/{id}")
-    Call<List<User>> getUser(@Path("id") String id);
+    @GET("users/{id}")
+    Call<User> getUser(@Path("id") String id);
 
-    @POST("user")
+    @POST("users")
     Call<Void> createUser(@Body User user);
 
-    @DELETE("user/{id}")
-    Call<Void> deleteUser(@Path("id") String id);
+    // ---------- contacts -----------
 
-    @GET("contacts")
-    Call<List<Contact>> getContacts(@Query("user") String usr);
+    @GET("{userName}/contacts")
+    Call<List<Contact>> getContacts(@Path("userName") String userName);
 
-    @GET("contacts/{contact}/messages?user={id}")
-    Call<List<Contact>> getChat(@Path("id") String id, @Path("contact") String Contact);
+    @GET("{userName}/contacts/{id}")
+    Call<Contact> getContact(@Path("userName") String userName, @Path("id") String id);
 
-    @POST("contacts/{contact}/messagrs?user={id}")
-    Call<Void> addMsg(@Path("id") String id, @Path("contact") String contact);
+    @POST("/{userName}/contacts")
+    Call<Void> addContact(@Path("userName") String userName, @Body AddContactData data);
 
-    @POST("contacts")
-    Call<Void> addContact(@Query("user") String userID, @Body Contact contact);
+    @POST("/invitations/")
+    Call<Void> invite(@Body InvitationData data);
 
+    // ---------- messages -----------
 
+    @GET("/{userId}/contacts/{id}/messages/")
+    Call<List<Msg>> getMessages(@Path("userId") String userId, @Path("id") String id);
+
+    @GET("/{userId}/contacts/{id}/messages/{msgId}")
+    Call<Msg> getMsg(@Path("userId") String userId, @Path("id") String id, @Path("msgId") int msgId);
+
+    @POST("/{userId}/contacts/{id}/messages/")
+    Call<Void> addMsg(@Path("userId") String userId, @Path("id") String id, @Body String content);
+
+    @POST("/transfer/")
+    Call<Void> transferMsg(@Body TransferData data);
 }

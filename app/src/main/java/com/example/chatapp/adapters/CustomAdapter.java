@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp.R;
-import com.example.chatapp.room.Contacts;
+import com.example.chatapp.objects.Contact;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private LayoutInflater inflater;
     private Context context;
-    private List<Contacts> lst;
+    private List<Contact> lst;
 
-    public CustomAdapter(Context context, List<Contacts> lst) {
+    public CustomAdapter(Context context, List<Contact> lst) {
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.lst=lst;
