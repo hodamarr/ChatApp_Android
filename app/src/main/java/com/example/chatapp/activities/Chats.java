@@ -38,11 +38,13 @@ public class Chats extends AppCompatActivity {
             RecyclerView lvpost = findViewById(R.id.lvpost);
 
             contacts = cdao.index();
+            Contact hod = new Contact("hod", "hodi", "1234", "hodik");
+            hod.setLast("I hate HEMI");
+            contacts.add(hod);
+
             adapter = new CustomAdapter(this, contacts);
             lvpost.setAdapter(adapter);
         });
-
-
 
     }
 
