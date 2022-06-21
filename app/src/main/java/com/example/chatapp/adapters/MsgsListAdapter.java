@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp.R;
-import com.example.chatapp.objects.Msg;
+import com.example.chatapp.room.Msg;
 
 import java.util.List;
 

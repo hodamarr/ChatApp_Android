@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp.R;
 import com.example.chatapp.adapters.MsgsListAdapter;
-import com.example.chatapp.objects.Msg;
+import com.example.chatapp.room.Msg;
 import com.example.chatapp.webServiceAPI.MsgAPI;
 
 import java.util.ArrayList;

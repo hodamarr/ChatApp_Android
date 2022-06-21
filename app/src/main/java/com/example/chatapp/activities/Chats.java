@@ -9,16 +9,16 @@ import androidx.room.Room;
 
 import com.example.chatapp.R;
 import com.example.chatapp.adapters.CustomAdapter;
-import com.example.chatapp.objects.Contact;
 import com.example.chatapp.room.AppDB;
-import com.example.chatapp.room.ContactsDao;
+import com.example.chatapp.room.Contact;
+import com.example.chatapp.room.ContactDao;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 public class Chats extends AppCompatActivity {
     private AppDB db;
-    private ContactsDao cdao;
+    private ContactDao cdao;
     private List<Contact> contacts;
     private CustomAdapter adapter;
 
@@ -27,7 +27,7 @@ public class Chats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         db = Room.databaseBuilder(getApplicationContext(), AppDB.class,"PostsDB").build();
-        cdao = (ContactsDao) db.ContactsDao();
+        cdao = db.contactDao();
         setContentView(R.layout.activity_chats);
 
         /// Add buttun
