@@ -11,7 +11,6 @@ public class Msg {
     private String created;
 
     private boolean sent;
-
     private int contactId;
 
     public Msg(String content, boolean sent, int contactId){
@@ -59,9 +58,5 @@ public class Msg {
     public void setContactId(int contactId) {
         this.contactId = contactId;
     }
-
-
-
-
 }
 

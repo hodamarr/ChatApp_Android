@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp.R;
 import com.example.chatapp.adapters.MsgsListAdapter;
-import com.example.chatapp.objects.Msg;
+import com.example.chatapp.room.Msg;
+import com.example.chatapp.webServiceAPI.MsgAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class Chat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
+        MsgAPI msgAPI = new MsgAPI();
+        msgAPI.get();
         RecyclerView lstChats = findViewById(R.id.chatRecyclerView);
         final MsgsListAdapter adapter = new MsgsListAdapter(this);
         lstChats.setAdapter(adapter);

@@ -1,9 +1,7 @@
 package com.example.chatapp.webServiceAPI;
 
-import androidx.room.Delete;
-
-
 import com.example.chatapp.objects.Contact;
+import com.example.chatapp.objects.Msg;
 import com.example.chatapp.objects.User;
 
 import java.util.List;
@@ -17,10 +15,10 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface WebServiceAPI {
-    @GET("uesr")
+    @GET("user")
     Call<List<User>> getUsers();
 
-    @GET("uesr/{id}")
+    @GET("user/{id}")
     Call<List<User>> getUser(@Path("id") String id);
 
     @POST("user")
@@ -40,6 +38,9 @@ public interface WebServiceAPI {
 
     @POST("contacts")
     Call<Void> addContact(@Query("user") String userID, @Body Contact contact);
+
+    @GET("/{userId}/contacts/{id}/messages/")
+    Call<List<Msg>> getMessages(@Path("userId") String userId,@Path("id") String id);
 
 
 }
