@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface MsgDao {
     @Query("SELECT * FROM msg")
-List<Contacts> index();
+List<msg> index();
 
     @Query("SELECT * FROM msg WHERE who=who")
     Contacts get(String who);
