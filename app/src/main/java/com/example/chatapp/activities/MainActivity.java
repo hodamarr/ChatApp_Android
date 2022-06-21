@@ -26,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         EditText username = findViewById(R.id.etLoginUsername);
         EditText password = findViewById(R.id.etLoginPassword);
-        EditText server = findViewById(R.id.etLoginServer);
+//        EditText server = findViewById(R.id.etLo);
 
         /// log in button button (On click Logic)
-        /// TODO: check if correct -> true: go to chat, false -> show msg on screen
         Button btnLogin = findViewById(R.id.btnLogin);
         binding.btnLogin.setOnClickListener(v -> {
             Intent i = new Intent(this, Chats.class);

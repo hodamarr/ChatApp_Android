@@ -20,7 +20,7 @@ public class Register extends AppCompatActivity {
         EditText name = findViewById(R.id.etRegisterUsername);
         EditText nick = findViewById(R.id.etRegisterNick);
         EditText pass = findViewById(R.id.etRegisterPassword);
-        EditText server = findViewById(R.id.etRegisterServer);
+        EditText server = findViewById(R.id.etRegisterPassValid);
 
         binding.btnRegsiterNow.setOnClickListener(v -> {
         });

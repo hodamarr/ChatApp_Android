@@ -32,7 +32,6 @@ public class AddChat extends AppCompatActivity {
                     addChatServer.toString());
             cdao.insert(contact);
 
-            //// add also to db
             finish();
         });
     }

@@ -1,11 +1,11 @@
 package com.example.chatapp.objects;
 
 public class User {
-    private String name;
-    private String nickname;
-    private String password;
+    private final String name;
+    private final String nickname;
+    private final String password;
     private String pic;
-    private String server;
+    private final String server;
 
     public User(String name, String nickname, String password, String pic, String server) {
         this.name = name;
