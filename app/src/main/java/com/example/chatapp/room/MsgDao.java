@@ -8,19 +8,19 @@ import androidx.room.Update;
 import java.util.List;
 
 public interface MsgDao {
-    @Query("SELECT * FROM msg")
+    @Query("SELECT * FROM Msg")
 List<Contacts> index();
 
-    @Query("SELECT * FROM msg WHERE who=who")
+    @Query("SELECT * FROM Msg WHERE who=who")
     Contacts get(String who);
 
     @Insert
-    void insert (msg... m);
+    void insert (Msg... m);
 
     @Update
-    default void update(msg... m) {
+    default void update(Msg... m) {
 
     }
     @Delete
-    void delete (msg... m);
+    void delete (Msg... m);
 }
