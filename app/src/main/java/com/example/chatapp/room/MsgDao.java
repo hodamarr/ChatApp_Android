@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.chatapp.objects.Contact;
+import com.example.chatapp.objects.Msg;
 
 import java.util.List;
 

@@ -24,9 +24,9 @@ public class MsgAPI {
         webServiceAPI = retrofit.create(WebServiceAPI.class);
     }
 
-    public void get(){
+    public void get(String userId, String contactId){
         //set user id and contact id !!!
-        Call<List<Msg>> call = webServiceAPI.getMessages("1","1");
+        Call<List<Msg>> call = webServiceAPI.getMessages(userId,contactId);
         call.enqueue(new Callback<List<Msg>>() {
             @Override
             public void onResponse(Call<List<Msg>> call, Response<List<Msg>> response) {

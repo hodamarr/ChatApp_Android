@@ -1,13 +1,16 @@
 package com.example.chatapp.objects;
 
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+@Entity
 public class Msg {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
     private String content;
 
+    //object type? time
     private String created;
 
     private boolean sent;
@@ -17,6 +20,8 @@ public class Msg {
         this.content = content;
         this.contactId = contactId;
         this.sent = sent;
+        //CHANGE!
+        this.created = "now";
     }
 
     public int getId() {
