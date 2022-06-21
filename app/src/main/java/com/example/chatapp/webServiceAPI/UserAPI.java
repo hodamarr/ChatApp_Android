@@ -2,7 +2,7 @@ package com.example.chatapp.webServiceAPI;
 
 import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
-import com.example.chatapp.objects.User;
+import com.example.chatapp.room.User;
 
 import java.util.List;
 

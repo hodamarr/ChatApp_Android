@@ -3,7 +3,7 @@ package com.example.chatapp.webServiceAPI;
 import com.example.chatapp.objects.AddContactData;
 import com.example.chatapp.objects.InvitationData;
 import com.example.chatapp.objects.TransferData;
-import com.example.chatapp.objects.User;
+import com.example.chatapp.room.User;
 import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.Msg;
 
