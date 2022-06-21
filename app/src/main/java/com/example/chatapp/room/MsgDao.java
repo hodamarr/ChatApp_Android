@@ -12,12 +12,16 @@ import java.util.List;
 public interface MsgDao {
     @Query("SELECT * FROM Msg")
     List<Msg> index();
+
     @Query("SELECT * FROM Msg WHERE contactId=contactId")
     Msg get();
+
     @Insert
     void insert(Msg... m);
+
     @Update
     void update(Msg... m);
+
     @Delete
     void delete(Msg... m);
 }

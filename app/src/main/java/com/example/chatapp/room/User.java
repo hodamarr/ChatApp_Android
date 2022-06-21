@@ -1,4 +1,4 @@
-package com.example.chatapp.objects;
+package com.example.chatapp.room;
 
 import androidx.room.Entity;
 
