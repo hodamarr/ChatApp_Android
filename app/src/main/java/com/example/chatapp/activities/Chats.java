@@ -1,22 +1,19 @@
 package com.example.chatapp.activities;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import androidx.room.Room;
-import android.content.Intent;
-import android.media.session.PlaybackState;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import com.example.chatapp.activities.CustomAdapter;
+
 import com.example.chatapp.R;
+import com.example.chatapp.adapters.CustomAdapter;
 import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.Contacts;
 import com.example.chatapp.room.ContactsDao;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Chats extends AppCompatActivity {
