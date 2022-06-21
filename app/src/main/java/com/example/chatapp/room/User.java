@@ -1,9 +1,11 @@
 package com.example.chatapp.room;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity
 public class User {
+    @PrimaryKey (autoGenerate = true) long id;
 
     private final String name;
 
