@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Contacts {
-    @PrimaryKey(autoGenerate=true)
-    int num;
 
+
+    @PrimaryKey(autoGenerate=true) public long contactsId;
     private String name;
     private String id;
     private String server;
@@ -17,6 +17,9 @@ public class Contacts {
         this.id = id;
         this.server = server;
     }
+
+    public Contacts(){}
+
 
     public String getName() {
         return name;
@@ -32,5 +35,21 @@ public class Contacts {
 
     public String toStr(){
         return this.id;
+    }
+
+    public long getContactsId() {
+        return contactsId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setServer(String server) {
+        this.server = server;
     }
 }

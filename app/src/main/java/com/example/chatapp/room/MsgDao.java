@@ -10,10 +10,10 @@ import java.util.List;
 @Dao
 public interface MsgDao {
     @Query("SELECT * FROM Msg")
-List<Contacts> index();
+    List<Msg> index();
 
     @Query("SELECT * FROM Msg WHERE contactId=contactId")
-    Contacts get(String who);
+    Msg get();
 
     @Insert
     void insert (Msg... m);

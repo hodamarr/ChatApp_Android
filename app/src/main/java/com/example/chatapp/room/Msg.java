@@ -5,8 +5,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Msg {
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @PrimaryKey(autoGenerate = true) public long msgId;
 
     private String content;
 
@@ -22,13 +21,13 @@ public class Msg {
         this.sent = sent;
     }
 
-    public int getId() {
-        return id;
+    public Msg(){
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public long getMsgId() {
+        return msgId;
     }
+
 
     public String getContent() {
         return content;
