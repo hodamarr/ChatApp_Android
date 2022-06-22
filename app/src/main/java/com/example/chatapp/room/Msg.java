@@ -3,6 +3,9 @@ package com.example.chatapp.room;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Entity
 public class Msg {
     @PrimaryKey (autoGenerate = true) long i;
@@ -17,8 +20,11 @@ public class Msg {
         this.content = content;
         this.sent = sent;
         this.contactId = contactId;
-        Long time = System.currentTimeMillis()/1000;
-        this.created = time.toString();
+        SimpleDateFormat formatter = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss");
+        Date curDate = new Date(System.currentTimeMillis());
+        String str = formatter.format(curDate);
+        this.created = str;
 
     }
 

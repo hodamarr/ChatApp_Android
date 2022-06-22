@@ -3,7 +3,6 @@ package com.example.chatapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -73,15 +72,6 @@ public class Register extends AppCompatActivity {
         binding.btnRegisterLogin.setOnClickListener(v -> {
             Intent iMainActivity = new Intent(this, MainActivity.class);
             startActivity(iMainActivity);
-        });
-
-        //image picker
-        Button imagePicker = findViewById(R.id.image_picker);
-        imagePicker.setOnClickListener(v -> {
-            // Launches photo picker in single-select mode.
-            // This means that the user can select one photo or video.
-//            Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
-//            startActivityForResult(intent, PHOTO_PICKER_REQUEST_CODE);
         });
     }
 

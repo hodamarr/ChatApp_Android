@@ -74,19 +74,6 @@
         android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/image_picker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="pick image"
-        android:drawableLeft="@drawable/ic_image"
-        android:drawableTint="@color/white"
-
-        />
-
-
-
-    <Button
         android:id="@+id/btnRegsiterNow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
