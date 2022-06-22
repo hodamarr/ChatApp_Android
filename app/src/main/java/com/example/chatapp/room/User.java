@@ -17,30 +17,11 @@ public class User {
 
     private final String server;
 
-    public User(String name, String nickname, String password, String pic, String server) {
-        this.name = name;
-        this.nick = nickname;
-        this.password = password;
-        this.pic = pic;
-        this.server = server;
-    }
-
-    public User(String name, String nickname, String password, String server) {
-        this.name = name;
-        this.nick = nickname;
-        this.password = password;
-        this.server = server;
-    }
-
-    public String getServer() {
-        return server;
-    }
-
     public String getName() {
         return name;
     }
 
-    public String getNickname() {
+    public String getNick() {
         return nick;
     }
 
@@ -50,5 +31,20 @@ public class User {
 
     public String getPic() {
         return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
+    public String getServer() {
+        return server;
+    }
+
+    public User(String name, String nick, String password, String server) {
+        this.name = name;
+        this.nick = nick;
+        this.password = password;
+        this.server = server;
     }
 }

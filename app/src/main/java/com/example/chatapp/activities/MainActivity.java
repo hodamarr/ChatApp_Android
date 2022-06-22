@@ -1,19 +1,21 @@
 package com.example.chatapp.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityMainBinding;
+import com.example.chatapp.objects.LoggedInUsr;
 
 
 public class MainActivity extends AppCompatActivity {
     /// for navigation
     private ActivityMainBinding binding;
+    private LoggedInUsr usr;
 
 
     //// USE LOG.I for info and debug
@@ -26,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
         EditText username = findViewById(R.id.etLoginUsername);
         EditText password = findViewById(R.id.etLoginPassword);
-//        EditText server = findViewById(R.id.etLo);
 
         /// log in button button (On click Logic)
         Button btnLogin = findViewById(R.id.btnLogin);
+        //Validation
         binding.btnLogin.setOnClickListener(v -> {
             Intent i = new Intent(this, Chats.class);
+            usr = LoggedInUsr.create(username.getText().toString());
             startActivity(i);
         });
 
