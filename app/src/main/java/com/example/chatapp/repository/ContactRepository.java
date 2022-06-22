@@ -8,7 +8,6 @@ import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.ContactDao;
 import com.example.chatapp.webServiceAPI.ContactsAPI;
-
 import java.util.List;
 
 public class ContactRepository {
@@ -22,7 +21,7 @@ public class ContactRepository {
         contactDao = appDB.contactDao();
         this.userId = userId;
         this.contactListData = new ContactListData();
-        this.contactsAPI = new ContactsAPI(contactListData, contactDao);
+        this.contactsAPI = new ContactsAPI(contactDao);
 
     }
 
@@ -31,11 +30,9 @@ public class ContactRepository {
         public ContactListData(){
             super();
             ///maybe delete later
-            contactDao.insert(new Contact("hell", "kkk", "lo"));
-            contactDao.insert(new Contact("dfas", "k2k", "lo"));
-
+            contactDao.insert(new Contact("Hod", "Amar", "1.2.3.4"));
+            contactDao.insert(new Contact("Ofek", "Avergil", "1.2.3.4"));
             List<Contact> contactList = contactDao.index();
-
             setValue(contactList);
         }
 
@@ -62,6 +59,7 @@ public class ContactRepository {
     public void add(Contact contact){
         contactDao.insert(contact);
         contactsAPI.addContact(userId, contact);
+        contactListData.postValue(contactDao.index());
     }
 
     public void reload(){

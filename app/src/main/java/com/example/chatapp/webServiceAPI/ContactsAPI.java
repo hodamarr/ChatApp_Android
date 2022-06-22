@@ -21,7 +21,7 @@ public class ContactsAPI {
     private WebServiceAPI webServiceAPI;
     private ContactDao contactDao;
 
-    public ContactsAPI(MutableLiveData<List<Contact>> mldContacts, ContactDao contactDao){
+    public ContactsAPI(ContactDao contactDao){
         retrofit = new Retrofit.Builder().baseUrl(MyApplication.context.getString(R.string.BaseUrl)).
                 addConverterFactory(GsonConverterFactory.create()).build();
         webServiceAPI = retrofit.create(WebServiceAPI.class);
