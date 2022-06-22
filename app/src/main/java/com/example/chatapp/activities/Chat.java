@@ -22,18 +22,18 @@ public class Chat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        MsgAPI msgAPI = new MsgAPI();
-        msgAPI.get("1", "1");
+        //MsgAPI msgAPI = new MsgAPI();
+        //msgAPI.get("1", "1");
         RecyclerView lstChats = findViewById(R.id.chatRecyclerView);
         final MsgsListAdapter adapter = new MsgsListAdapter(this);
         lstChats.setAdapter(adapter);
         lstChats.setLayoutManager(new LinearLayoutManager(this));
 
         List<Msg> msgs = new ArrayList<>();
-        msgs.add(new Msg("hey", true, 1));
-        msgs.add(new Msg("hey1", true, 1));
-        msgs.add(new Msg("hey2", true, 1));
-        msgs.add(new Msg("hey3", true, 1));
+      //  msgs.add(new Msg("hey", true, 1));
+      //  msgs.add(new Msg("hey1", true, 1));
+     //   msgs.add(new Msg("hey2", true, 1));
+      //  msgs.add(new Msg("hey3", true, 1));
 
         adapter.setMsgs(msgs);
     }

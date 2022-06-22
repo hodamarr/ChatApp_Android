@@ -7,12 +7,7 @@ import com.example.chatapp.MyApplication;
 import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.ContactDao;
-import com.example.chatapp.room.MsgDao;
 import com.example.chatapp.webServiceAPI.ContactsAPI;
-import android.app.Application;
-import android.content.Context;
-
-import java.util.LinkedList;
 import java.util.List;
 
 public class ContactRepository {
@@ -26,7 +21,7 @@ public class ContactRepository {
         contactDao = appDB.contactDao();
         this.userId = userId;
         this.contactListData = new ContactListData();
-        this.contactsAPI = new ContactsAPI(contactListData, contactDao);
+        this.contactsAPI = new ContactsAPI(contactDao);
 
     }
 
@@ -62,6 +57,7 @@ public class ContactRepository {
     public void add(Contact contact){
         contactDao.insert(contact);
         contactsAPI.addContact(userId, contact);
+        contactListData.postValue(contactDao.index());
     }
 
     public void reload(){

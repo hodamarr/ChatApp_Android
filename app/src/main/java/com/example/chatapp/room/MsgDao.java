@@ -13,8 +13,8 @@ public interface MsgDao {
     @Query("SELECT * FROM Msg")
     List<Msg> index();
 
-    @Query("SELECT * FROM Msg WHERE contactId=contactId")
-    Msg get();
+    @Query("SELECT * FROM Msg WHERE contactId=:contactId")
+    List<Msg> getByID(String contactId);
 
     @Insert
     void insert(Msg... m);
@@ -24,4 +24,10 @@ public interface MsgDao {
 
     @Delete
     void delete(Msg... m);
+
+    @Query("DELETE FROM msg WHERE contactId=:contactId")
+    void deleteAllByID(String contactId);
+
+    @Insert
+    List<Msg> insertList(List<Msg> msg);
 }

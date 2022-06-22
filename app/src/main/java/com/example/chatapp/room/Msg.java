@@ -12,15 +12,15 @@ public class Msg {
     private String created;
 
     private boolean sent;
-    private int contactId;
+    private String contactId;
 
-    public Msg(String content, boolean sent, int contactId) {
+    public Msg(String content, boolean sent, String contactId) {
         this.content = content;
         this.sent = sent;
         this.contactId = contactId;
     }
 
-    public Msg(String content, String created, boolean sent, int contactId) {
+    public Msg(String content, String created, boolean sent, String contactId) {
         this.content = content;
         this.created = created;
         this.sent = sent;
@@ -42,7 +42,7 @@ public class Msg {
         return sent;
     }
 
-    public int getContactId() {
+    public String getContactId() {
         return contactId;
     }
 
@@ -58,7 +58,7 @@ public class Msg {
         this.sent = sent;
     }
 
-    public void setContactId(int contactId) {
+    public void setContactId(String contactId) {
         this.contactId = contactId;
     }
 }
