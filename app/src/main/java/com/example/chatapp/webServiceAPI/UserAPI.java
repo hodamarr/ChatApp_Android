@@ -19,13 +19,14 @@ public class UserAPI {
     private Retrofit retrofit;
     private UserDao userDao;
 
-    public UserAPI(){
+    public UserAPI(UserDao userDao){
         retrofit = new Retrofit.Builder()
                 .baseUrl(MyApplication.context.getString(R.string.BaseUrl))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         webServiceAPI = retrofit.create(WebServiceAPI.class);
-        userDao = AppDB.getInstance(MyApplication.context).userDao();
+        this.userDao = userDao;
+        userDao.addUser(new User("Hod","Hodi", "1234" , "1.2.3.4"));
     }
 
     public void get(){
@@ -47,19 +48,18 @@ public class UserAPI {
         });
     }
 
-    public void getUserById(String id){
-        Call <User> call = webServiceAPI.getUser(id);
-        call.enqueue(new Callback<User>() {
+    public void add(User u){
+        Call<Void> call = webServiceAPI.createUser(u);
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                
+            public void onResponse(Call<Void> call, Response<Void> response) {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
 
             }
         });
-
     }
+
 }

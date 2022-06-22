@@ -41,9 +41,5 @@ public class ContactViewModel extends ViewModel {
         contactRepository.reload();
     }
 
-    public MutableLiveData<Contact> getContactByName(String name) {
-        contactLV.postValue(contactRepository.getContactByName(name));
-        return contactLV;
-    }
 
 }
