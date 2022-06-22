@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
 import com.example.chatapp.objects.AddContactData;
+import com.example.chatapp.objects.InvitationData;
 import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.ContactDao;
 
@@ -72,6 +73,19 @@ public class ContactsAPI {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                new Thread(() -> {
+                    InvitationData invitationData = new InvitationData(userId, newContact.getId(), newContact.getServer());
+                    Call<Void> call1 = webServiceAPI.invite(invitationData);
+                    call1.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                        }
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                        }
+                    });
+
+                });
 
             }
 

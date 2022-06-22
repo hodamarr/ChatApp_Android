@@ -17,7 +17,7 @@ public interface MsgDao {
     List<Msg> getByID(String contactId);
 
     @Insert
-    void insert(Msg... m);
+    void insert(Msg m);
 
     @Update
     void update(Msg... m);

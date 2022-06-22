@@ -17,13 +17,13 @@ public class Msg {
         this.content = content;
         this.sent = sent;
         this.contactId = contactId;
-        Long time = System.currentTimeMillis()/1000;
-        this.created = time.toString();
+        this.created = "10:39";
 
     }
 
     public Msg() {
     }
+
 
     public String getContent() {
         return content;

@@ -47,6 +47,8 @@ public class MsgRepository {
 
     public void addMsgByContactId(String contactId, Msg m){
         msgAPI.addMsg(userId, m);
+        msgDao.insert(m);
+        reload(contactId);
         msgListData.postValue(msgDao.getByID(contactId));
     }
 

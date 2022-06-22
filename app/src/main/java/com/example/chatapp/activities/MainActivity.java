@@ -50,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+/// && user.getServer().equals(usr.getServer())
             if (isExist == true) {
+
                 Log.d("passFromText", password.getText().toString());
                 if (user.getPassword().equals(password.getText().toString())) {
                     Intent i = new Intent(this, Chats.class);

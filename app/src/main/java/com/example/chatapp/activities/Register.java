@@ -33,7 +33,7 @@ public class Register extends AppCompatActivity {
         EditText name = findViewById(R.id.etRegisterUsername);
         EditText nick = findViewById(R.id.etRegisterNick);
         EditText pass = findViewById(R.id.etRegisterPassword);
-        EditText server = findViewById(R.id.etRegisterPassValid);
+        EditText passValid = findViewById(R.id.etRegisterPassValid);
 
         //regist button
         binding.btnRegsiterNow.setOnClickListener(v -> {
@@ -52,7 +52,7 @@ public class Register extends AppCompatActivity {
 
             if(isExist == false) {
                 userRepository.addUser(new User(name.getText().toString(), nick.getText().toString(),
-                        pass.getText().toString(), server.getText().toString()));
+                        pass.getText().toString(), usr.getServer()));
 
                 Intent i = new Intent(this, Chats.class);
                 usr = LoggedInUsr.create(name.getText().toString());
