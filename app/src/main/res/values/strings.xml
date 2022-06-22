@@ -16,4 +16,5 @@
     <string name="send">SEND</string>
     <string name="already_have_account">Already have an account?</string>
     <string name="BaseUrl">http://10.0.2.2:7149/api/</string>
+    <string name="settings">settings</string>
 </resources>

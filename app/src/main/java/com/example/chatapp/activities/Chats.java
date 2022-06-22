@@ -48,8 +48,7 @@ public class Chats extends AppCompatActivity {
             @Override
             public void onItemClick(Contact contact) {
                 TextView contactName = findViewById(R.id.contact_name);
-//                Contact c = vm.getContactByName(contactName.getText().toString());
-//                usr.setChatWith(c);
+                usr.setChatWith(contact);
                 Intent intent = new Intent(getApplicationContext(), Chat.class);
                 intent.putExtra("contactName", contactName.getText());
                 startActivity(intent);
@@ -59,6 +58,7 @@ public class Chats extends AppCompatActivity {
         lvpost.setLayoutManager(new LinearLayoutManager(this));
         //get contacts
         vm.getAll().observe(this, cList -> {
+            contacts = cList;
             adapter.setContacts(cList);
         });
 
