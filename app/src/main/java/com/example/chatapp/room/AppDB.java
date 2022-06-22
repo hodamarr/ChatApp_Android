@@ -6,11 +6,12 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Contact.class, Msg.class, User.class}, version = 4)
+@Database(entities = {Contact.class, Msg.class, User.class}, version = 5)
 public abstract class AppDB extends RoomDatabase {
     private static volatile AppDB appDB;
     public abstract MsgDao msgDao();
     public abstract ContactDao contactDao();
+    public abstract UserDao userDao();
 
     public static AppDB getInstance(Context context){
         if(appDB == null){

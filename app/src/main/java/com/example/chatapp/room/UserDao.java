@@ -11,17 +11,18 @@ import java.util.List;
 @Dao
 public interface UserDao {
     @Query("SELECT * FROM user")
-    List<Msg> index();
+    List<User> index();
 
-    @Query("SELECT * FROM user WHERE id=id")
-    Msg get();
+    @Query("SELECT * FROM user WHERE name= :id")
+    User get(String id);
 
     @Insert
-    void insert(Msg... m);
+    void addUser(User... u);
 
-    @Update
-    void update(Msg... m);
+    @Insert
+    void addListUser(List<User> users);
 
-    @Delete
-    void delete(Msg... m);
+    @Query("DELETE FROM user")
+    void deleteAll();
+
 }

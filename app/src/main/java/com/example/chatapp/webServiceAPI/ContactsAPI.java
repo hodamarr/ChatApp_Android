@@ -49,6 +49,7 @@ public class ContactsAPI {
         });
     }
 
+
     public void getContact(String userId, String contactId){
         Call<Contact> call = webServiceAPI.getContact(userId, contactId);
         call.enqueue(new Callback<Contact>() {
