@@ -2,14 +2,19 @@ package com.example.chatapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityMainBinding;
 import com.example.chatapp.objects.LoggedInUsr;
+import com.example.chatapp.repository.UserRepository;
+import com.example.chatapp.room.User;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
