@@ -7,12 +7,8 @@ import com.example.chatapp.MyApplication;
 import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.ContactDao;
-import com.example.chatapp.room.MsgDao;
 import com.example.chatapp.webServiceAPI.ContactsAPI;
-import android.app.Application;
-import android.content.Context;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class ContactRepository {
@@ -36,7 +32,7 @@ public class ContactRepository {
         public ContactListData(){
             super();
             ///maybe delete later
-            List<Contact> contactList = contactDao.index(userId);
+            List<Contact> contactList = contactDao.index();
             setValue(contactList);
         }
 
@@ -44,7 +40,7 @@ public class ContactRepository {
         protected void onActive() {
             super.onActive();
 
-            contactListData.postValue(contactDao.index(userId));
+            contactListData.postValue(contactDao.index());
             new Thread(() -> {
                 contactsAPI.getAllContacts(userId);
             }).start();
