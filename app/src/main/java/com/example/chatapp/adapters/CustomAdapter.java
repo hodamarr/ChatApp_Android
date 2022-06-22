@@ -27,14 +27,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.activity_chats, parent, false);
+        View view = inflater.inflate(R.layout.costume_list_item, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.serial_number.setText(lst.get(position).toStr());
+        if(lst != null){
+        holder.lstMsg.setText(lst.get(position).getLast());
+        holder.nameUsr.setText(lst.get(position).getUserName());
+        }
     }
 
     @Override
@@ -44,11 +47,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     class MyViewHolder extends RecyclerView.ViewHolder
     {
-        TextView serial_number;
+        private TextView nameUsr;
+        private TextView lstMsg;
+        // pic
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            serial_number = (TextView)itemView.findViewById(R.id.lvpost);
+            nameUsr = itemView.findViewById(R.id.contact_name);
+            lstMsg = itemView.findViewById(R.id.last_massage);
         }
     }
 }
