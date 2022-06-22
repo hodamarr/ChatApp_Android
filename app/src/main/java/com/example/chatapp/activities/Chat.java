@@ -31,10 +31,10 @@ public class Chat extends AppCompatActivity {
         contactName.setText(usr.getChatWith());
 
         msgs = new ArrayList<>();
-        msgs.add(new Msg("hey", true, 1));
-        msgs.add(new Msg("hey1", true, 1));
-        msgs.add(new Msg("hey2", true, 1));
-        msgs.add(new Msg("hey3", true, 1));
+        //msgs.add(new Msg("hey", true, 1));
+        //msgs.add(new Msg("hey1", true, 1));
+        //msgs.add(new Msg("hey2", true, 1));
+        //msgs.add(new Msg("hey3", true, 1));
 
 //        MsgAPI msgAPI = new MsgAPI();
 //        msgAPI.get("1", "1");

@@ -19,7 +19,6 @@ public class ContactViewModel extends ViewModel {
         userId = LoggedInUsr.getLoggedInUsr().getLoggedin();
         contactRepository = new ContactRepository(userId);
         contactLiveData = contactRepository.getAll();
-        this.userId = userId;
     }
 
     public LiveData<List<Contact>> getAll() {
@@ -34,7 +33,7 @@ public class ContactViewModel extends ViewModel {
         contactRepository.add(contact);
     }
 
-   public void reload() {
+    public void reload() {
         contactRepository.reload();
     }
 

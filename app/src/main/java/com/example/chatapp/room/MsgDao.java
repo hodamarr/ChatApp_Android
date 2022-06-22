@@ -29,5 +29,8 @@ public interface MsgDao {
     void deleteAllByID(String contactId);
 
     @Insert
-    List<Msg> insertList(List<Msg> msg);
+    void insertList(List<Msg> msg);
+
+    @Query("DELETE FROM msg")
+    void deleteAll();
 }

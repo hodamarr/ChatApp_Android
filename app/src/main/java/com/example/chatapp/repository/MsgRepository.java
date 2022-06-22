@@ -1,5 +1,6 @@
 package com.example.chatapp.repository;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.chatapp.MyApplication;
@@ -39,13 +40,22 @@ public class MsgRepository {
         }
     }
 
-    public List<Msg> getChatById(String contactId){
-
-        return msgDao.getByID(contactId);
+    public LiveData<List<Msg>> getChatByContactId(String contactId){
+        reload(contactId);
+        msgListData.postValue(msgDao.getByID(contactId));
+        return msgListData;
     }
 
-    public void addMsgById(String contactId, Msg m){
+    public void addMsgByContactId(String contactId, Msg m){
         msgAPI.addMsg(userId, m);
         msgListData.postValue(msgDao.getByID(contactId));
+    }
+
+    public void reload(String contactId){
+        msgAPI.getAllChats(userId, contactId);
+    }
+
+    public void DeleteAll(){
+        msgDao.deleteAll();
     }
 }
