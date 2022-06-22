@@ -2,17 +2,17 @@ package com.example.chatapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp.R;
-import com.example.chatapp.adapters.ContactsAdapter;
+import com.example.chatapp.adapters.ContactsListAdapter;
 import com.example.chatapp.databinding.ActivityChatsBinding;
 import com.example.chatapp.objects.LoggedInUsr;
 import com.example.chatapp.room.Contact;
@@ -24,7 +24,7 @@ import java.util.List;
 public class Chats extends AppCompatActivity {
     private ContactViewModel vm;
     private List<Contact> contacts;
-    private ContactsAdapter adapter;
+    private ContactsListAdapter adapter;
     private ActivityChatsBinding binding;
     private LoggedInUsr usr;
 
@@ -43,24 +43,30 @@ public class Chats extends AppCompatActivity {
 
 
         //Contacts list
-        ListView lvpost = findViewById(R.id.lvpost);
-        adapter = new ContactsAdapter(this);
+        RecyclerView lvpost = findViewById(R.id.lvpost);
+        adapter = new ContactsListAdapter(this, new ContactsListAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(Contact contact) {
+                TextView contactName = findViewById(R.id.contact_name);
+                usr.setChatWith(contactName.getText().toString());
+                Intent intent = new Intent(getApplicationContext(), Chat.class);
+                intent.putExtra("contactName", contactName.getText());
+                startActivity(intent);
+            }
+        });
         lvpost.setAdapter(adapter);
+        lvpost.setLayoutManager(new LinearLayoutManager(this));
         //get contacts
         vm.getAll().observe(this, cList -> {
             adapter.setContacts(cList);
         });
-        lvpost.setClickable(true);
-        lvpost.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-              @Override
-              public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                  TextView contactName = findViewById(R.id.contact_name);
-                  usr.setChatWith(contactName.getText().toString());
-                  Intent intent = new Intent(getApplicationContext(), Chat.class);
-                  intent.putExtra("contactName", contactName.getText());
-                  startActivity(intent);
-              }
-        });
+
+//        lvpost.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//              @Override
+//              public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//              }
+//        });
 
         /// Add chat button
         FloatingActionButton btnAdd = findViewById(R.id.btnAdd);
@@ -79,6 +85,11 @@ public class Chats extends AppCompatActivity {
 
 
     }
+
+    private void showToast(String message){
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     protected void onStart() {

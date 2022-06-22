@@ -9,55 +9,75 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp.R;
-import com.example.chatapp.room.Msg;
+import com.example.chatapp.room.Contact;
 
 import java.util.List;
 
-public class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.MsgViewHolder> {
+public class ContactsListAdapter extends RecyclerView.Adapter<ContactsListAdapter.ContactViewHolder> {
 
-    class MsgViewHolder extends RecyclerView.ViewHolder{
-        private final TextView tvContent;
+    class ContactViewHolder extends RecyclerView.ViewHolder{
+        private final TextView tvContactName;
+        private final TextView tvLastMessage;
+        private final TextView tvTime;
 
-        private MsgViewHolder(View itemView){
+        private ContactViewHolder(View itemView){
             super(itemView);
-            tvContent = itemView.findViewById(R.id.txt_sent_message);
+            tvContactName = itemView.findViewById(R.id.contact_name);
+            tvLastMessage = itemView.findViewById(R.id.last_massage);
+            tvTime = itemView.findViewById(R.id.time);
         }
     }
 
     private final LayoutInflater mInflater;
-    private List<Msg> msgs;
+    private List<Contact> contacts;
+    private ItemClickListener mItemListener;
 
-    public ContactsListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
-
-    @Override
-    public MsgViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.sent_message, parent, false);
-        return new MsgViewHolder(itemView);
+    public ContactsListAdapter(Context context, ItemClickListener itemClickListener) {
+        mInflater = LayoutInflater.from(context);
+        this.mItemListener = itemClickListener;
     }
 
     @Override
-    public void onBindViewHolder(MsgViewHolder holder, int position){
-        if(msgs!= null) {
-            final Msg current = msgs.get(position);
-            holder.tvContent.setText(current.getContent());
+    public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = mInflater.inflate(R.layout.costume_list_item, parent, false);
+        return new ContactViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(ContactViewHolder holder, int position){
+        if(contacts!= null) {
+            final Contact current = contacts.get(position);
+            holder.tvContactName.setText(current.getName());
+            holder.tvLastMessage.setText(current.getLast());
+            holder.tvTime.setText(current.getLastDate());
+
+            holder.itemView.setOnClickListener(view -> {
+                mItemListener.onItemClick(contacts.get(position));
+            });
         }
     }
 
     @Override
     public int getItemCount() {
-        if (msgs!=null){
-            return msgs.size();
+        if (contacts!=null){
+            return contacts.size();
         }
         else return 0;
     }
 
-    public List<Msg> getMsgs() {
-        return msgs;
+    public interface ItemClickListener{
+        void onItemClick(Contact contact);
     }
 
-    public void setMsgs(List<Msg> msgs) {
-        this.msgs = msgs;
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
         notifyDataSetChanged();
     }
+
+
 
 }
