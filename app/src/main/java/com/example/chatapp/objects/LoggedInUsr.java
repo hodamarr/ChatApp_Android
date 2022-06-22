@@ -3,19 +3,22 @@ package com.example.chatapp.objects;
 import com.example.chatapp.room.Contact;
 
 public class LoggedInUsr {
-    private String loggedin = null;
+    private String loggedin;
     private String server;
     private Contact chatWith;
+    private static LoggedInUsr loggedInUsr;
 
-    public LoggedInUsr(String loggedin, String server) {
-        if (loggedin == null) {
+    public static LoggedInUsr create(String l, String s){
+        if (loggedInUsr == null) {
+            loggedInUsr = new LoggedInUsr(l, s);
+        }
+        return loggedInUsr;
+    }
+
+    private LoggedInUsr(String loggedin, String server) {
             this.loggedin = loggedin;
             this.server = server;
-        }
-        else {
-            setLoggedin(loggedin);
-            setServer(server);
-        }
+
     }
 
     public String getLoggedin() {
