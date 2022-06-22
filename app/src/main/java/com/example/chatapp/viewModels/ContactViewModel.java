@@ -1,6 +1,7 @@
 package com.example.chatapp.viewModels;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.chatapp.objects.LoggedInUsr;
@@ -12,13 +13,16 @@ import java.util.List;
 
 public class ContactViewModel extends ViewModel {
     private LiveData<List<Contact>> contactLiveData;
+    private MutableLiveData<Contact> contactLV;
     private ContactRepository contactRepository;
     private String userId;
+    private Contact returnedContact;
 
     public ContactViewModel(){
         userId = LoggedInUsr.getLoggedInUsr().getLoggedin();
         contactRepository = new ContactRepository(userId);
         contactLiveData = contactRepository.getAll();
+
     }
 
     public LiveData<List<Contact>> getAll() {
@@ -37,6 +41,9 @@ public class ContactViewModel extends ViewModel {
         contactRepository.reload();
     }
 
-    public void getContactByName(String name) {contactRepository.getContactByName(name);}
+    public MutableLiveData<Contact> getContactByName(String name) {
+        contactLV.postValue(contactRepository.getContactByName(name));
+        return contactLV;
+    }
 
 }
