@@ -47,6 +47,7 @@ public class ContactRepository {
         }
     }
     public LiveData<List<Contact>> getAll(){
+
         reload();
         contactListData.postValue(contactDao.index());
         return contactListData;
