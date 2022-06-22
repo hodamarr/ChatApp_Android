@@ -11,7 +11,7 @@ import java.util.List;
 @Dao
 public interface ContactDao {
 
-    @Query("SELECT * FROM contact WHERE userName=userName")
+    @Query("SELECT * FROM contact")
     List<Contact> index();
 
     @Query("SELECT * FROM contact WHERE id=id")
@@ -20,11 +20,17 @@ public interface ContactDao {
     @Insert
     void insert(Contact contacts);
 
+    @Insert
+    void insertList(List<Contact> lc);
+
     @Update
     void update(Contact... contacts);
 
     @Delete
     void delete(Contact... contacts);
+
+    @Query("DELETE FROM contact")
+    void deleteAll();
 
 
 

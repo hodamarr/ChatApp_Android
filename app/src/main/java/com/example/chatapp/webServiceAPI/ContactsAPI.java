@@ -34,10 +34,11 @@ public class ContactsAPI {
         call.enqueue(new Callback<List<Contact>>() {
             @Override
             public void onResponse(Call<List<Contact>> call, Response<List<Contact>> response) {
-            List<Contact> contactList = response.body();
 
             new Thread(() -> {
-                /// update
+                List<Contact> contactList = response.body();
+                contactDao.deleteAll();
+                contactDao.insertList(contactList);
             });
             }
 
