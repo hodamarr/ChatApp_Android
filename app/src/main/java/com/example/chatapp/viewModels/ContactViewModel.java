@@ -37,4 +37,6 @@ public class ContactViewModel extends ViewModel {
         contactRepository.reload();
     }
 
+    public void getContactByName(String name) {contactRepository.getContactByName(name);}
+
 }

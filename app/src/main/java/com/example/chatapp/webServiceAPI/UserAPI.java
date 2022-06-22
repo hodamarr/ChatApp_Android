@@ -2,7 +2,9 @@ package com.example.chatapp.webServiceAPI;
 
 import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
+import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.User;
+import com.example.chatapp.room.UserDao;
 
 import java.util.List;
 
@@ -13,8 +15,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UserAPI {
-    WebServiceAPI webServiceAPI;
-    Retrofit retrofit;
+    private WebServiceAPI webServiceAPI;
+    private Retrofit retrofit;
+    private UserDao userDao;
 
     public UserAPI(){
         retrofit = new Retrofit.Builder()
@@ -22,6 +25,7 @@ public class UserAPI {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         webServiceAPI = retrofit.create(WebServiceAPI.class);
+        userDao = AppDB.getInstance(MyApplication.context).userDao();
     }
 
     public void get(){
@@ -30,6 +34,10 @@ public class UserAPI {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> users = response.body();
+                new Thread(() -> {
+                    userDao.deleteAll();
+                    userDao.addListUser(users);
+                });
             }
 
             @Override
@@ -37,5 +45,21 @@ public class UserAPI {
 
             }
         });
+    }
+
+    public void getUserById(String id){
+        Call <User> call = webServiceAPI.getUser(id);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+
     }
 }

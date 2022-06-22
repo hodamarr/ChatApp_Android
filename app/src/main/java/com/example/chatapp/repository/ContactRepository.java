@@ -47,6 +47,7 @@ public class ContactRepository {
         }
     }
     public LiveData<List<Contact>> getAll(){
+
         reload();
         contactListData.postValue(contactDao.index());
         return contactListData;
@@ -60,6 +61,16 @@ public class ContactRepository {
         contactDao.insert(contact);
         contactsAPI.addContact(userId, contact);
         contactListData.postValue(contactDao.index());
+    }
+
+    public Contact getContactByName(String name) {
+        List<Contact> lc =  contactDao.index();
+        for (Contact c : lc){
+            if (c.getName() == name){
+                return c;
+            }
+        }
+        return null;
     }
 
     public void reload(){
