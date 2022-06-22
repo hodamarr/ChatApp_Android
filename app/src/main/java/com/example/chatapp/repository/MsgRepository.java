@@ -28,7 +28,8 @@ public class MsgRepository {
     public class MsgListData extends MutableLiveData<List<Msg>> {
         public MsgListData() {
             super();
-            msgDao.insert(new Msg("hey", true, "Amar"));
+            //msgDao.insert(new Msg("hey", true, "Amar"));
+            msgDao.deleteAll();
             setValue(new LinkedList<>());
         }
 

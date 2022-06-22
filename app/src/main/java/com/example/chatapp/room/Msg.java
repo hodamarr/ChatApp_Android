@@ -9,8 +9,7 @@ public class Msg {
     private String content;
 
     //object type? time
-    private String created;
-
+    private String  created;
     private boolean sent;
     private String contactId;
 
@@ -18,13 +17,9 @@ public class Msg {
         this.content = content;
         this.sent = sent;
         this.contactId = contactId;
-    }
+        Long time = System.currentTimeMillis()/1000;
+        this.created = time.toString();
 
-    public Msg(String content, String created, boolean sent, String contactId) {
-        this.content = content;
-        this.created = created;
-        this.sent = sent;
-        this.contactId = contactId;
     }
 
     public Msg() {
@@ -34,7 +29,7 @@ public class Msg {
         return content;
     }
 
-    public String getCreated() {
+    public String  getCreated() {
         return created;
     }
 
@@ -50,7 +45,7 @@ public class Msg {
         this.content = content;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(String  created) {
         this.created = created;
     }
 

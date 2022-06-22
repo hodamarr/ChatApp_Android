@@ -17,4 +17,8 @@
     <string name="already_have_account">Already have an account?</string>
     <string name="BaseUrl">http://10.0.2.2:7149/api/</string>
     <string name="settings">settings</string>
+    <string name="title_activity_bbbbb">bbbbb</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

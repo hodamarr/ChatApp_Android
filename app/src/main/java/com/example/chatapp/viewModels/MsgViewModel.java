@@ -1,7 +1,6 @@
 package com.example.chatapp.viewModels;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.chatapp.objects.LoggedInUsr;
@@ -27,8 +26,8 @@ public class MsgViewModel extends ViewModel {
         return msgLiveData;
     }
 
-    public void add(Msg msg, String contactID) {
-        mRepository.addMsgByContactId(contactID, msg);
+    public void add(Msg msg) {
+        mRepository.addMsgByContactId(msg.getContactId(), msg);
     }
 
     public void reload(String contactId) {

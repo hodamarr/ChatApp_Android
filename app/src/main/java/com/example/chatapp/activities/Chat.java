@@ -1,6 +1,8 @@
 package com.example.chatapp.activities;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +47,15 @@ public class Chat extends AppCompatActivity {
         //get messages
         vm.get(c.getId()).observe(this, mList -> {
             adapter.setMsgs(mList);
+        });
+
+        //send message
+        EditText messageBox = findViewById(R.id.messageBox);
+        Button send = findViewById(R.id.btnSend);
+        send.setOnClickListener(v -> {
+            String textMessage = messageBox.getText().toString();
+            Msg newMsg = new Msg(textMessage, true, c.getId());
+            vm.add(newMsg);
         });
     }
 }

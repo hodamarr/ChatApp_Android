@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityMainBinding;
 import com.example.chatapp.objects.LoggedInUsr;
-import com.example.chatapp.webServiceAPI.WebServiceAPI;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-
         setContentView(binding.getRoot());
+
 
         EditText username = findViewById(R.id.etLoginUsername);
         EditText password = findViewById(R.id.etLoginPassword);
