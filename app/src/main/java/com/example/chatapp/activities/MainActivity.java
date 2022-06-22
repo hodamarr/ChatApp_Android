@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     /// for navigation
     private ActivityMainBinding binding;
     private LoggedInUsr usr;
+    private UserRepository userRepository;
+    private User user;
 
 
     //// USE LOG.I for info and debug
@@ -24,20 +26,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+        userRepository = new UserRepository();
+
         setContentView(binding.getRoot());
 
 
+        List<User> users = userRepository.getAll();
         EditText username = findViewById(R.id.etLoginUsername);
         EditText password = findViewById(R.id.etLoginPassword);
 
-        /// log in button button (On click Logic)
-        Button btnLogin = findViewById(R.id.btnLogin);
-        //Validation
         binding.btnLogin.setOnClickListener(v -> {
+            Boolean isExist = false;
+            for (User u : users){
+                if(username.getText().toString().equals(u.getName())){
+                   user = u;
+                   isExist = true;
+                   break;
+                }
+            }
 
-            Intent i = new Intent(this, Chats.class);
-            usr = LoggedInUsr.create(username.getText().toString());
-            startActivity(i);
+            if (isExist == true) {
+                Log.d("passFromText", password.getText().toString());
+                if (user.getPassword().equals(password.getText().toString())) {
+                    Intent i = new Intent(this, Chats.class);
+                    usr = LoggedInUsr.create(user.getName());
+                    startActivity(i);
+                }
+            }
+            else {
+                CharSequence text = "Username or Password incorrect!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                toast.show();
+
+                Intent j = new Intent(this, MainActivity.class);
+                startActivity(j);
+            }
         });
 
         /// register button (On click Logic)
