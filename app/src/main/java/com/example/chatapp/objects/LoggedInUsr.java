@@ -8,10 +8,14 @@ public class LoggedInUsr {
     private Contact chatWith;
     private static LoggedInUsr loggedInUsr;
 
-    public static LoggedInUsr create(String l, String s){
+    public LoggedInUsr Create(String l, String s){
         if (loggedInUsr == null) {
             loggedInUsr = new LoggedInUsr(l, s);
         }
+        return loggedInUsr;
+    }
+
+    public LoggedInUsr returnLoggedIn(){
         return loggedInUsr;
     }
 

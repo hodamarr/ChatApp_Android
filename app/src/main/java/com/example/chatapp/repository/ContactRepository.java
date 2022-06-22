@@ -22,7 +22,6 @@ public class ContactRepository {
     private String userId;
 
     public ContactRepository(String userId){
-        //// localDB db = singleton.
         AppDB appDB = AppDB.getInstance(MyApplication.context);
         contactDao = appDB.contactDao();
         this.userId = userId;
@@ -36,7 +35,7 @@ public class ContactRepository {
         public ContactListData(){
             super();
             ///maybe delete later
-            List<Contact> contactList = contactDao.index(userId);
+            List<Contact> contactList = contactDao.index();
             setValue(contactList);
         }
 
@@ -44,13 +43,15 @@ public class ContactRepository {
         protected void onActive() {
             super.onActive();
 
-            contactListData.postValue(contactDao.index(userId));
+            contactListData.postValue(contactDao.index());
             new Thread(() -> {
                 contactsAPI.getAllContacts(userId);
             }).start();
         }
     }
     public LiveData<List<Contact>> getAll(){
+        reload();
+        contactListData.postValue(contactDao.index());
         return contactListData;
     }
 
@@ -63,9 +64,7 @@ public class ContactRepository {
         contactsAPI.addContact(userId, contact);
     }
 
-
-
-    public void reload(Contact contact){
+    public void reload(){
         contactsAPI.getAllContacts(userId);
     }
 

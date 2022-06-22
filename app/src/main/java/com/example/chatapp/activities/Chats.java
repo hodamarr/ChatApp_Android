@@ -36,7 +36,7 @@ public class Chats extends AppCompatActivity {
             Intent i = new Intent(this, AddChat.class);
             startActivity(i);
             RecyclerView lvpost = findViewById(R.id.lvpost);
-            
+
            // contacts = cdao.index(userId);
             Contact hod = new Contact("hod", "hodi", "1234", "hodik");
             hod.setLast("I hate HEMI");

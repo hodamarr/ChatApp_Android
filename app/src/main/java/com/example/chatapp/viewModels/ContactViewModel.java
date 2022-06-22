@@ -14,22 +14,29 @@ import java.util.List;
 public class ContactViewModel extends ViewModel {
     private LiveData<List<Contact>> contactLiveData;
     private ContactRepository contactRepository;
+    private String userId;
 
     public ContactViewModel(String userId){
+
         contactRepository = new ContactRepository(userId);
         contactLiveData = contactRepository.getAll();
+        this.userId = userId;
     }
 
-    public LiveData<List<Contact>> get() {
-        return contactLiveData;
+    public LiveData<List<Contact>> getAll() {
+        return contactRepository.getAll();
+    }
+
+    public void getContactById(String id){
+        contactRepository.get(id);
     }
 
     public void add(Contact contact) {
         contactRepository.add(contact);
     }
 
-//    public void reload() {
-//        contactRepository.reload();
-//    }
+   public void reload() {
+        contactRepository.reload();
+    }
 
 }
