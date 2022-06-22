@@ -26,7 +26,6 @@ public class UserAPI {
                 .build();
         webServiceAPI = retrofit.create(WebServiceAPI.class);
         this.userDao = userDao;
-        userDao.addUser(new User("Hod","Hodi", "1234" , "1.2.3.4"));
     }
 
     public void get(){
