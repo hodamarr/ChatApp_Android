@@ -1,9 +1,11 @@
 package com.example.chatapp.objects;
 
+import com.example.chatapp.room.Contact;
+
 public class LoggedInUsr {
     private String loggedin;
     private String server;
-    private String chatWith;
+    private Contact chatWith;
     private String pic;
     private static LoggedInUsr loggedInUsr;
 
@@ -33,7 +35,7 @@ public class LoggedInUsr {
         return server;
     }
 
-    public String getChatWith() {
+    public Contact getChatWith() {
         return chatWith;
     }
 
@@ -45,7 +47,7 @@ public class LoggedInUsr {
         this.server = server;
     }
 
-    public void setChatWith(String chatWith) {
+    public void setChatWith(Contact chatWith) {
         this.chatWith = chatWith;
     }
 }

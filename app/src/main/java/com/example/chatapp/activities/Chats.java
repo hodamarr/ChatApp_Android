@@ -48,7 +48,8 @@ public class Chats extends AppCompatActivity {
             @Override
             public void onItemClick(Contact contact) {
                 TextView contactName = findViewById(R.id.contact_name);
-                usr.setChatWith(contactName.getText().toString());
+//                Contact c = vm.getContactByName(contactName.getText().toString());
+//                usr.setChatWith(c);
                 Intent intent = new Intent(getApplicationContext(), Chat.class);
                 intent.putExtra("contactName", contactName.getText());
                 startActivity(intent);
@@ -60,13 +61,6 @@ public class Chats extends AppCompatActivity {
         vm.getAll().observe(this, cList -> {
             adapter.setContacts(cList);
         });
-
-//        lvpost.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//              @Override
-//              public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//              }
-//        });
 
         /// Add chat button
         FloatingActionButton btnAdd = findViewById(R.id.btnAdd);

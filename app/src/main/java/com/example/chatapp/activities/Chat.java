@@ -1,47 +1,50 @@
 package com.example.chatapp.activities;
 
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp.R;
-import com.example.chatapp.adapters.MsgsAdapter;
+import com.example.chatapp.adapters.MsgsListAdapter;
 import com.example.chatapp.objects.LoggedInUsr;
+import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.Msg;
+import com.example.chatapp.viewModels.MsgViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Chat extends AppCompatActivity {
-    private MsgsAdapter adapter;
+    private MsgsListAdapter adapter;
     private List<Msg> msgs;
     private String contact;
     private LoggedInUsr usr;
+    private MsgViewModel vm;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        usr = LoggedInUsr.getLoggedInUsr();
+        vm = new ViewModelProvider(this).get(MsgViewModel.class);
+
         //contact's Name
+        usr = LoggedInUsr.getLoggedInUsr();
+        Contact c = usr.getChatWith();
         TextView contactName = findViewById(R.id.contact_name);
-        contactName.setText(usr.getChatWith());
-
-        msgs = new ArrayList<>();
-        //msgs.add(new Msg("hey", true, 1));
-        //msgs.add(new Msg("hey1", true, 1));
-        //msgs.add(new Msg("hey2", true, 1));
-        //msgs.add(new Msg("hey3", true, 1));
-
-//        MsgAPI msgAPI = new MsgAPI();
-//        msgAPI.get("1", "1");
+        contactName.setText(c.getName());
 
         //Messages list
-        ListView lstChats = findViewById(R.id.chatRecyclerView);
-        adapter = new MsgsAdapter(this, msgs);
+        RecyclerView lstChats = findViewById(R.id.chatRecyclerView);
+        adapter = new MsgsListAdapter(this);
         lstChats.setAdapter(adapter);
+        lstChats.setLayoutManager(new LinearLayoutManager(this));
+        //get messages
+        vm.get(c.getId()).observe(this, mList -> {
+            adapter.setMsgs(mList);
+        });
     }
 }

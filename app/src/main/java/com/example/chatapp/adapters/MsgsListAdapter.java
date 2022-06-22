@@ -27,7 +27,9 @@ public class MsgsListAdapter  extends RecyclerView.Adapter<MsgsListAdapter.MsgVi
     private final LayoutInflater mInflater;
     private List<Msg> msgs;
 
-    public MsgsListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+    public MsgsListAdapter(Context context) {
+        mInflater = LayoutInflater.from(context);
+    }
 
     @Override
     public MsgViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

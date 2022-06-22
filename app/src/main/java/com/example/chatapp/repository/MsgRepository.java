@@ -7,7 +7,6 @@ import com.example.chatapp.MyApplication;
 import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.Msg;
 import com.example.chatapp.room.MsgDao;
-import com.example.chatapp.webServiceAPI.ContactsAPI;
 import com.example.chatapp.webServiceAPI.MsgAPI;
 
 import java.util.LinkedList;
@@ -31,6 +30,7 @@ public class MsgRepository {
     public class MsgListData extends MutableLiveData<List<Msg>> {
         public MsgListData() {
             super();
+            msgDao.insert(new Msg("hey", true, "Amar"));
             setValue(new LinkedList<>());
         }
 
