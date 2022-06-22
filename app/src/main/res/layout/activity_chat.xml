@@ -38,14 +38,14 @@
     </LinearLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="777dp"
         android:layout_above="@+id/linearLayout"
         tools:listitem="@layout/sent_message">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </ListView>
 
 
     <LinearLayout
