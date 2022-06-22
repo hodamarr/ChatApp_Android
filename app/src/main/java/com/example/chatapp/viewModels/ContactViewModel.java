@@ -1,12 +1,11 @@
 package com.example.chatapp.viewModels;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.chatapp.objects.LoggedInUsr;
 import com.example.chatapp.repository.ContactRepository;
 import com.example.chatapp.room.Contact;
-import com.example.chatapp.room.Msg;
 
 import java.util.List;
 
@@ -16,8 +15,8 @@ public class ContactViewModel extends ViewModel {
     private ContactRepository contactRepository;
     private String userId;
 
-    public ContactViewModel(String userId){
-
+    public ContactViewModel(){
+        userId = LoggedInUsr.getLoggedInUsr().getLoggedin();
         contactRepository = new ContactRepository(userId);
         contactLiveData = contactRepository.getAll();
         this.userId = userId;

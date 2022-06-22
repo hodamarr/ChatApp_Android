@@ -34,7 +34,7 @@
             android:id="@+id/img_sent_message"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            tools:src="@drawable/user" />
+            android:src="@drawable/user" />
 
     </LinearLayout>
 

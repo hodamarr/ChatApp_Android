@@ -30,7 +30,7 @@ public class MsgsAdapter extends ArrayAdapter<Msg> {
     public View getView(int position, @Nullable View convertView, @Nullable ViewGroup parent) {
         Msg message = getItem(position);
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.costume_list_item, parent, false);
+            convertView = inflater.inflate(R.layout.sent_message, parent, false);
         }
         TextView content = convertView.findViewById(R.id.txt_sent_message);
         content.setText(message.getContent());

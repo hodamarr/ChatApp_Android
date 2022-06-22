@@ -31,7 +31,11 @@ public class ContactRepository {
         public ContactListData(){
             super();
             ///maybe delete later
+            contactDao.insert(new Contact("hell", "kkk", "lo"));
+            contactDao.insert(new Contact("dfas", "k2k", "lo"));
+
             List<Contact> contactList = contactDao.index();
+
             setValue(contactList);
         }
 

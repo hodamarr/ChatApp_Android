@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.example.chatapp.R;
 import com.example.chatapp.room.Contact;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsAdapter extends ArrayAdapter<Contact> {
@@ -20,11 +21,11 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
     private Context context;
     private List<Contact> lst;
 
-    public ContactsAdapter(Context context, List<Contact> lst) {
-        super(context,R.layout.costume_list_item, lst);
+    public ContactsAdapter(Context context) {
+        super(context,R.layout.costume_list_item);
         this.inflater = LayoutInflater.from(context);
         this.context = context;
-        this.lst=lst;
+        this.lst= new ArrayList<>();
     }
 
     public View getView(int position, @Nullable View convertView, @Nullable ViewGroup parent){
@@ -45,37 +46,9 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
 
     }
 
-//    @Override
-//    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View view = inflater.inflate(R.layout.costume_list_item, parent, false);
-//        MyViewHolder holder = new MyViewHolder(view);
-//        return holder;
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(MyViewHolder holder, int position) {
-//        if(lst != null){
-//        holder.lstMsg.setText(lst.get(position).getLast());
-//        holder.nameUsr.setText(lst.get(position).getUserName());
-//        }
-//    }
+    public void setContacts(List<Contact> c){
+        lst = c;
+        notifyDataSetChanged();
+    }
 
-//    @Override
-//    public int getItemCount() {
-//        return lst.size();
-//    }
-//
-//    class MyViewHolder extends RecyclerView.ViewHolder
-//    {
-//        private TextView nameUsr;
-//        private TextView lstMsg;
-//        // pic
-//
-//
-//        public MyViewHolder(View itemView) {
-//            super(itemView);
-//            nameUsr = itemView.findViewById(R.id.contact_name);
-//            lstMsg = itemView.findViewById(R.id.last_massage);
-//        }
-//    }
 }
