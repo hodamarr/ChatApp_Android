@@ -1,9 +1,11 @@
 package com.example.chatapp.webServiceAPI;
 
 import android.telephony.SignalThresholdInfo;
+import android.util.Log;
 
 import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
+import com.example.chatapp.objects.TransferData;
 import com.example.chatapp.room.Msg;
 import com.example.chatapp.room.MsgDao;
 
@@ -55,7 +57,18 @@ public class MsgAPI {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 new Thread(() -> {
-                    msgDao.insert(msg);
+                    TransferData data = new TransferData(userId, msg.getContactId(), msg.getContent());
+                    Call<Void> call1 = webServiceAPI.transferMsg(data);
+                    call1.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                        }
+                    });
+
                 });
             }
 

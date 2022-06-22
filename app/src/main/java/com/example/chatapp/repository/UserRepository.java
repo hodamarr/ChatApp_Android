@@ -23,6 +23,7 @@ public class UserRepository {
     }
 
     public void addUser(User u){
+        userDao.addUser(u);
         userAPI.add(u);
     }
 

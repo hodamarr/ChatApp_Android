@@ -53,6 +53,7 @@ public class UserAPI {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                userDao.addUser(u);
             }
 
             @Override
