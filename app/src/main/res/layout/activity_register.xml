@@ -62,16 +62,6 @@
         android:layout_margin="5dp"
         android:importantForAutofill="no" />
 
-    <EditText
-        android:id="@+id/etRegisterPassValid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/pass2"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:layout_margin="5dp"
-        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btnRegsiterNow"
