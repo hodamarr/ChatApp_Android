@@ -47,8 +47,11 @@
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_gravity="center"
-            android:layout_margin="2dp"
-            android:drawableRight="@drawable/ic_settings"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:drawableLeft="@drawable/ic_settings"
             android:drawableTint="@color/white"
             android:text="settings" />
 

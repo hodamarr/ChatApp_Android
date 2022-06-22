@@ -1,23 +1,27 @@
 package com.example.chatapp.objects;
 
-import com.example.chatapp.room.Contact;
-
 public class LoggedInUsr {
     private String loggedin;
     private String server;
-    private Contact chatWith;
+    private String chatWith;
+    private String pic;
     private static LoggedInUsr loggedInUsr;
 
-    public static LoggedInUsr create(String l, String s){
+    public static LoggedInUsr create(String l){
         if (loggedInUsr == null) {
-            loggedInUsr = new LoggedInUsr(l, s);
+            loggedInUsr = new LoggedInUsr(l);
         }
         return loggedInUsr;
     }
 
-    private LoggedInUsr(String loggedin, String server) {
+    public static LoggedInUsr getLoggedInUsr() {
+        return loggedInUsr;
+    }
+
+    private LoggedInUsr(String loggedin) {
             this.loggedin = loggedin;
-            this.server = server;
+            this.server = "localhost:4179";
+            this.pic = loggedin + ".png";
 
     }
 
@@ -29,7 +33,7 @@ public class LoggedInUsr {
         return server;
     }
 
-    public Contact getChatWith() {
+    public String getChatWith() {
         return chatWith;
     }
 
@@ -41,7 +45,7 @@ public class LoggedInUsr {
         this.server = server;
     }
 
-    public void setChatWith(Contact chatWith) {
+    public void setChatWith(String chatWith) {
         this.chatWith = chatWith;
     }
 }

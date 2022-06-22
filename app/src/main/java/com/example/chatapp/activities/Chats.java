@@ -14,6 +14,7 @@ import androidx.room.Room;
 import com.example.chatapp.R;
 import com.example.chatapp.adapters.ContactsAdapter;
 import com.example.chatapp.databinding.ActivityChatsBinding;
+import com.example.chatapp.objects.LoggedInUsr;
 import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.ContactDao;
@@ -28,19 +29,23 @@ public class Chats extends AppCompatActivity {
     private List<Contact> contacts;
     private ContactsAdapter adapter;
     private ActivityChatsBinding binding;
+    private LoggedInUsr usr;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityChatsBinding.inflate(getLayoutInflater());
-
+        usr = LoggedInUsr.getLoggedInUsr();
         db = Room.databaseBuilder(getApplicationContext(), AppDB.class,"PostsDB").build();
         cdao = db.contactDao();
         setContentView(R.layout.activity_chats);
+
         //SET USER NAME
         TextView userName = findViewById(R.id.user_name);
-        userName.setText("Hod Amar");
+        userName.setText(usr.getLoggedin());
+
+        //tmp check delete!!!
         contacts = new ArrayList<>();
         Contact contact = new Contact("Ofek Avergil", "1", "localhost");
         contact.setLast("hey sup");
@@ -74,8 +79,9 @@ public class Chats extends AppCompatActivity {
         lvpost.setOnItemClickListener(new AdapterView.OnItemClickListener() {
               @Override
               public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                  Intent intent = new Intent(getApplicationContext(), Chat.class);
                   TextView contactName = findViewById(R.id.contact_name);
+                  usr.setChatWith(contactName.getText().toString());
+                  Intent intent = new Intent(getApplicationContext(), Chat.class);
                   intent.putExtra("contactName", contactName.getText());
                   startActivity(intent);
               }
