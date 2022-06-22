@@ -1,11 +1,11 @@
 package com.example.chatapp.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityMainBinding;
@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         /// log in button button (On click Logic)
         Button btnLogin = findViewById(R.id.btnLogin);
+        //Validation
         binding.btnLogin.setOnClickListener(v -> {
             Intent i = new Intent(this, Chats.class);
+            //save in settings db the connected user.
             startActivity(i);
         });
 

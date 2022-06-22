@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ofeka/StudioProjects/ChatApp_Android/app/src/main/res/drawable/contact_background.xml" value="0.212" />
+        <entry key="..\:/Users/ofeka/StudioProjects/ChatApp_Android/app/src/main/res/layout/activity_add_chat.xml" value="0.2774690038477982" />
+        <entry key="..\:/Users/ofeka/StudioProjects/ChatApp_Android/app/src/main/res/layout/activity_chat.xml" value="0.16802052159042324" />
+        <entry key="..\:/Users/ofeka/StudioProjects/ChatApp_Android/app/src/main/res/layout/activity_chats.xml" value="0.4" />
+        <entry key="..\:/Users/ofeka/StudioProjects/ChatApp_Android/app/src/main/res/layout/activity_main.xml" value="0.16802052159042324" />
+        <entry key="..\:/Users/ofeka/StudioProjects/ChatApp_Android/app/src/main/res/layout/costume_list_item.xml" value="0.2774690038477982" />
+        <entry key="..\:/Users/ofeka/StudioProjects/ChatApp_Android/app/src/main/res/layout/sent_message.xml" value="0.2774690038477982" />
         <entry key="app/src/main/res/layout/activity_add_chat.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_chats.xml" value="0.2418478260869565" />
