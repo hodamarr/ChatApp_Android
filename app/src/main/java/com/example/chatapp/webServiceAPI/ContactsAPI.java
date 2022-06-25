@@ -39,7 +39,7 @@ public class ContactsAPI {
             new Thread(() -> {
                 List<Contact> contactList = response.body();
                 contactDao.deleteAll();
-                contactDao.insertList(contactList);
+                contactDao.insertList(contactList); ///
             });
             }
 
@@ -79,6 +79,7 @@ public class ContactsAPI {
                     call1.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
+                            contactDao.insert(newContact);
                         }
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {

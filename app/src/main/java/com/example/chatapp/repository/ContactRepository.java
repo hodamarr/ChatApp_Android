@@ -56,7 +56,6 @@ public class ContactRepository {
     }
 
     public void add(Contact contact){
-        contactDao.insert(contact);
         contactsAPI.addContact(userId, contact);
         contactListData.postValue(contactDao.index());
     }
