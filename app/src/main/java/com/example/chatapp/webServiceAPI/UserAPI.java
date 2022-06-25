@@ -5,7 +5,6 @@ import android.util.Log;
 import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
 import com.example.chatapp.room.User;
-import com.example.chatapp.room.UserDao;
 
 import java.util.List;
 import java.util.concurrent.Executors;

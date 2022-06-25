@@ -17,6 +17,7 @@ import com.example.chatapp.room.User;
 import com.example.chatapp.webServiceAPI.WebServiceAPI;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         });
         EditText username = findViewById(R.id.etLoginUsername);
         EditText password = findViewById(R.id.etLoginPassword);
-
         binding.btnLogin.setOnClickListener(v -> {
             Boolean isExist = false;
             if (!users.isEmpty()) {

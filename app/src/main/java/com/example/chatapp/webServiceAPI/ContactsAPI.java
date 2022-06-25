@@ -40,7 +40,7 @@ public class ContactsAPI {
                 List<Contact> contactList = response.body();
                 contactDao.deleteAll();
                 contactDao.insertList(contactList); ///
-            });
+            }).start();
             }
 
             @Override

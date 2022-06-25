@@ -1,5 +1,7 @@
 package com.example.chatapp.repository;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -59,7 +61,6 @@ public class ContactRepository {
         contactsAPI.addContact(userId, contact);
         contactListData.postValue(contactDao.index());
     }
-
 
 
     public void reload(){

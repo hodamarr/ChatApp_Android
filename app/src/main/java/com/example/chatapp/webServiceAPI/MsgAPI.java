@@ -41,7 +41,7 @@ public class MsgAPI {
                 new Thread(() -> {
                     msgDao.deleteAllByID(contactId);
                     msgDao.insertList(msgs);
-                });
+                }).start();
             }
 
             @Override
@@ -69,7 +69,7 @@ public class MsgAPI {
                         }
                     });
 
-                });
+                }).start();
             }
 
             @Override
