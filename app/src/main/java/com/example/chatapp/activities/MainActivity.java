@@ -12,12 +12,9 @@ import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityMainBinding;
 import com.example.chatapp.objects.LoggedInUsr;
-import com.example.chatapp.repository.UserRepository;
 import com.example.chatapp.room.User;
 import com.example.chatapp.webServiceAPI.WebServiceAPI;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     /// for navigation
     private ActivityMainBinding binding;
     private LoggedInUsr usr;
-    private UserRepository userRepository;
     private User user;
     private Retrofit retrofit;
     private WebServiceAPI webServiceAPI;
