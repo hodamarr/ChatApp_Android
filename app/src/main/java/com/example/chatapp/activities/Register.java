@@ -13,6 +13,7 @@ import com.example.chatapp.databinding.ActivityRegisterBinding;
 import com.example.chatapp.objects.LoggedInUsr;
 import com.example.chatapp.repository.UserRepository;
 import com.example.chatapp.room.User;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.List;
 
@@ -50,6 +51,9 @@ public class Register extends AppCompatActivity {
             Log.d("isExist", isExist.toString());
 
             if(isExist == false) {
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(Register.this, p->{
+                    String token = p.getToken();
+                });
                 usr = LoggedInUsr.create(name.getText().toString());
 
                 userRepository.addUser(new User(name.getText().toString(), nick.getText().toString(),
