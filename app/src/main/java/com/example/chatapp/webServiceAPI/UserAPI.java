@@ -1,12 +1,14 @@
 package com.example.chatapp.webServiceAPI;
 
+import android.util.Log;
+
 import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
-import com.example.chatapp.room.AppDB;
 import com.example.chatapp.room.User;
 import com.example.chatapp.room.UserDao;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,14 +21,17 @@ public class UserAPI {
     private Retrofit retrofit;
     private UserDao userDao;
 
+
+
     public UserAPI(UserDao userDao){
         retrofit = new Retrofit.Builder()
                 .baseUrl(MyApplication.context.getString(R.string.BaseUrl))
+                .callbackExecutor(Executors.newSingleThreadExecutor())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         webServiceAPI = retrofit.create(WebServiceAPI.class);
         this.userDao = userDao;
-        userDao.addUser(new User("Hod","Hodi", "1234" , "1.2.3.4"));
+        //userDao.addUser(new User("Hod","Hodi", "1234" , "1.2.3.4"));
     }
 
     public void get(){
@@ -34,6 +39,7 @@ public class UserAPI {
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                Log.d("on response", "aaaaa");
                 List<User> users = response.body();
                 new Thread(() -> {
                     userDao.deleteAll();
@@ -43,7 +49,7 @@ public class UserAPI {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-
+                Log.d("on fail","aaaa");
             }
         });
     }

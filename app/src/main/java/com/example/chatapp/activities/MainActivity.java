@@ -13,8 +13,15 @@ import com.example.chatapp.databinding.ActivityMainBinding;
 import com.example.chatapp.objects.LoggedInUsr;
 import com.example.chatapp.repository.UserRepository;
 import com.example.chatapp.room.User;
+import com.example.chatapp.webServiceAPI.WebServiceAPI;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,23 +39,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         userRepository = new UserRepository();
+         String s;
 
         setContentView(binding.getRoot());
 
 
-        List<User> users = userRepository.getAll();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://10.0.2.2:7149/api/")
+                .addConverterFactory(GsonConverterFactory.create()).build();
+        WebServiceAPI api = retrofit.create(WebServiceAPI.class);
+        Call<List<User>> call = api.getUsers();
+        call.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                if(!response.isSuccessful()){
+                    Log.d("on fail","worked but error");
+                    return;
+                }
+                List<User> users = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.d(t.getMessage(),"didn't worked agaim2");
+            }
+        });
+        //List<User> users = userRepository.getAll();
         EditText username = findViewById(R.id.etLoginUsername);
         EditText password = findViewById(R.id.etLoginPassword);
 
         binding.btnLogin.setOnClickListener(v -> {
             Boolean isExist = false;
-            for (User u : users){
-                if(username.getText().toString().equals(u.getName())){
-                   user = u;
-                   isExist = true;
-                   break;
-                }
-            }
+//            for (User u : users){
+//                if(username.getText().toString().equals(u.getName())){
+//                   user = u;
+//                   isExist = true;
+//                   break;
+//                }
+//            }
 
 /// && user.getServer().equals(usr.getServer())
             if (isExist == true) {

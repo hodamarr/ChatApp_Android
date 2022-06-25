@@ -17,40 +17,40 @@ import retrofit2.http.Path;
 
 public interface WebServiceAPI {
     // ---------- Users -----------
-    @GET("users")
+    @GET("users/")
     Call<List<User>> getUsers();
 
     @GET("users/{id}")
     Call<User> getUser(@Path("id") String id);
 
-    @POST("users")
+    @POST("users/")
     Call<Void> createUser(@Body User user);
 
     // ---------- contacts -----------
 
-    @GET("{userName}/contacts")
+    @GET("{userName}/contacts/")
     Call<List<Contact>> getContacts(@Path("userName") String userName);
 
     @GET("{userName}/contacts/{id}")
     Call<Contact> getContact(@Path("userName") String userName, @Path("id") String id);
 
-    @POST("/{userName}/contacts")
+    @POST("{userName}/contacts")
     Call<Void> addContact(@Path("userName") String userName, @Body AddContactData data);
 
-    @POST("/invitations/")
+    @POST("invitations/")
     Call<Void> invite(@Body InvitationData data);
 
     // ---------- messages -----------
 
-    @GET("/{userId}/contacts/{id}/messages/")
+    @GET("{userId}/contacts/{id}/messages/")
     Call<List<Msg>> getMessages(@Path("userId") String userId, @Path("id") String id);
 
-    @GET("/{userId}/contacts/{id}/messages/{msgId}")
+    @GET("{userId}/contacts/{id}/messages/{msgId}")
     Call<Msg> getMsg(@Path("userId") String userId, @Path("id") String id, @Path("msgId") int msgId);
 
-    @POST("/{userId}/contacts/{id}/messages/")
+    @POST("{userId}/contacts/{id}/messages/")
     Call<Void> addMsg(@Path("userId") String userId, @Path("id") String id, @Body String content);
 
-    @POST("/transfer/")
+    @POST("transfer/")
     Call<Void> transferMsg(@Body TransferData data);
 }
