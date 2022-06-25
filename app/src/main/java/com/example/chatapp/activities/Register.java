@@ -12,6 +12,7 @@ import com.example.chatapp.MyApplication;
 import com.example.chatapp.R;
 import com.example.chatapp.databinding.ActivityRegisterBinding;
 import com.example.chatapp.objects.LoggedInUsr;
+import com.example.chatapp.objects.tokenData;
 import com.example.chatapp.repository.UserRepository;
 import com.example.chatapp.room.User;
 import com.example.chatapp.webServiceAPI.UserAPI;
@@ -92,6 +93,19 @@ public class Register extends AppCompatActivity {
                 call1.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
+                        Call<Void> call2 = webServiceAPI.createToken(new tokenData(name.getText().toString(), token));
+                        call2.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+
+                            }
+                        });
+
                     }
 
                     @Override

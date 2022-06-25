@@ -9,22 +9,22 @@ import java.util.Date;
 @Entity
 public class Msg {
     @PrimaryKey (autoGenerate = true) long i;
-    private String content;
+    private String Content;
 
     //object type? time
-    private String  created;
-    private boolean sent;
-    private String contactId;
+    private String Created;
+    private boolean Sent;
+    private String ContactId;
 
     public Msg(String content, boolean sent, String contactId) {
-        this.content = content;
-        this.sent = sent;
-        this.contactId = contactId;
+        this.Content = content;
+        this.Sent = sent;
+        this.ContactId = contactId;
         SimpleDateFormat formatter = new SimpleDateFormat(
                 "yyyy-MM-dd HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());
         String str = formatter.format(curDate);
-        this.created = str;
+        this.Created = str;
 
     }
 
@@ -32,34 +32,34 @@ public class Msg {
     }
 
     public String getContent() {
-        return content;
+        return Content;
     }
 
     public String  getCreated() {
-        return created;
+        return Created;
     }
 
     public boolean isSent() {
-        return sent;
+        return Sent;
     }
 
     public String getContactId() {
-        return contactId;
+        return ContactId;
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.Content = content;
     }
 
     public void setCreated(String  created) {
-        this.created = created;
+        this.Created = created;
     }
 
     public void setSent(boolean sent) {
-        this.sent = sent;
+        this.Sent = sent;
     }
 
     public void setContactId(String contactId) {
-        this.contactId = contactId;
+        this.ContactId = contactId;
     }
 }

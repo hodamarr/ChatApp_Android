@@ -1,8 +1,11 @@
 package com.example.chatapp.webServiceAPI;
 
+import android.media.session.MediaSession;
+
 import com.example.chatapp.objects.AddContactData;
 import com.example.chatapp.objects.InvitationData;
 import com.example.chatapp.objects.TransferData;
+import com.example.chatapp.objects.tokenData;
 import com.example.chatapp.room.User;
 import com.example.chatapp.room.Contact;
 import com.example.chatapp.room.Msg;
@@ -53,4 +56,10 @@ public interface WebServiceAPI {
 
     @POST("transfer/")
     Call<Void> transferMsg(@Body TransferData data);
+
+    ////// ------- token ------
+    @POST("firebaseToken/")
+    Call<Void> createToken(@Body tokenData td);
+
 }
+
