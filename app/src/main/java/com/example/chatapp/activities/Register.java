@@ -40,6 +40,7 @@ public class Register extends AppCompatActivity {
             /// check if exist
             Boolean isExist = false;
             for (User u : lu){
+
                 if (u.getName().equals(name.getText().toString())){
                     isExist = true;
                     break;
