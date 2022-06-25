@@ -35,11 +35,16 @@ public class ContactsAPI {
         call.enqueue(new Callback<List<Contact>>() {
             @Override
             public void onResponse(Call<List<Contact>> call, Response<List<Contact>> response) {
-
-            new Thread(() -> {
                 List<Contact> contactList = response.body();
+            new Thread(() -> {
                 contactDao.deleteAll();
-                contactDao.insertList(contactList); ///
+                if (!contactList.isEmpty()) {
+                    ///
+                    contactDao.deleteAll();
+                    for (Contact c : contactList){
+                        contactDao.insert(c);
+                    }
+                }
             }).start();
             }
 
