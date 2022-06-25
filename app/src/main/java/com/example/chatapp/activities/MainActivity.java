@@ -16,6 +16,7 @@ import com.example.chatapp.repository.UserRepository;
 import com.example.chatapp.room.User;
 import com.example.chatapp.webServiceAPI.WebServiceAPI;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private List<User> users;
 
 
+
     //// USE LOG.I for info and debug
 
     @Override
@@ -43,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        users.add(new User("hod", "hod", "1234", "aaa", "aaa"));
-
         retrofit = new Retrofit.Builder()
                 .baseUrl(MyApplication.context.getString(R.string.BaseUrl))
                 .addConverterFactory(GsonConverterFactory.create())
@@ -67,11 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btnLogin.setOnClickListener(v -> {
             Boolean isExist = false;
-            for (User u : users){
-                if(username.getText().toString().equals(u.getName())){
-                   user = u;
-                   isExist = true;
-                   break;
+            if (!users.isEmpty()) {
+                for (User u : users) {
+                    if (username.getText().toString().equals(u.getName())) {
+                        user = u;
+                        isExist = true;
+                        break;
+                    }
                 }
             }
 
