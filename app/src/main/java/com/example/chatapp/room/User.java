@@ -17,6 +17,8 @@ public class User {
 
     private final String server;
 
+    private String token;
+
     public String getName() {
         return name;
     }
@@ -33,6 +35,14 @@ public class User {
         return pic;
     }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
     public void setPic(String pic) {
         this.pic = pic;
     }
@@ -41,10 +51,11 @@ public class User {
         return server;
     }
 
-    public User(String name, String nick, String password, String server) {
+    public User(String name, String nick, String password, String server, String token) {
         this.name = name;
         this.nick = nick;
         this.password = password;
         this.server = server;
+        this.token = token;
     }
 }

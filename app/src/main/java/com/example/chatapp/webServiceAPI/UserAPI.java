@@ -55,18 +55,7 @@ public class UserAPI {
     }
 
     public void add(User u){
-        Call<Void> call = webServiceAPI.createUser(u);
-        call.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                userDao.addUser(u);
-            }
 
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-
-            }
-        });
     }
 
 }
